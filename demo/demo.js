@@ -12,6 +12,9 @@ function square(len) {
     }
 }
 
+//t.animate(true);
+//square(100);
+
 function arcr(size, deg) {
     for (var i = 0; i < deg; i++) {
         t.forward(size).right(1);
@@ -30,6 +33,7 @@ function ray(deg) {
     arcl(1, deg);
 }
 
+//t.animate(true, 1);
 //for (var i = 0; i < 9; i++) {
 //    ray(120);
 //    t.right(200);
@@ -49,15 +53,18 @@ function branch(size, scale, lang, rang) {
 }
 
 //branch(100, 0.7, 10, 50);
+//t.animate(true, 10);
+//branch(100, 0.65, 10, 50);
 
-function polyspi(size, angle) {
+function polyspi(size, angle, step) {
     if (size > 400) return;
     
     t.forward(size).right(angle);
-    polyspi(size + 1, angle);
+    polyspi(size + step, angle, step);
 }
 
-// polyspi(15, 72);
+t.animate(true, 500);
+polyspi(20, 72, 3);
 
 function dragon(size, level, isRight) {
     if (level === 0) {
@@ -98,5 +105,5 @@ function nestedTriangle(size) {
     }
 }
 
-t.goto(200, 400).right(30);
-nestedTriangle(320);
+//t.goto(200, 400).right(30);
+//nestedTriangle(320);
